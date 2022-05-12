@@ -107,7 +107,7 @@ public class ParameterFinder {
                 stdInput = new BufferedReader(new InputStreamReader(pr.getInputStream()));
             }
             while ((s = stdInput.readLine()) != null) {
-                output.append(s);
+                output.append(s+"\n");
             }
             a.buildLogString("\t\tCommand output: " + output + "\n");
             returnVal = performRegex(regex, output);
@@ -124,10 +124,18 @@ public class ParameterFinder {
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(output.toString());
         if (m.find()) {
-            a.buildLogString("\t\tVersion: " + m.group(1) + "\n");
-            a.values.put(tool + m.group(1), m.group(1));
-            if (fileFound.length() > 1)
-                a.values.put(tool + m.group(1) + "_Path", fileFound);
+            String sVersions = "";
+            int iCount = 0;
+            do {
+                a.buildLogString("\t\tVersion: " + m.group(1) + "\n");
+                if( iCount > 0 )
+                    sVersions += ";";
+
+                sVersions += m.group(1);
+                ++iCount;                    
+            } while(m.find());
+
+            a.values.put(tool, sVersions);
             return true;
         }
         else {
