@@ -1,5 +1,34 @@
 <parameterList>
     <parameter>
+        <tool>Houdini</tool>
+        <file>null</file>
+        <location>null</location>
+        <command>forfiles /P "C:\Program Files\Side Effects Software"</command>
+        <regex>"Houdini ([\d\.]+)"</regex>
+    </parameter>
+    <parameter>
+        <tool>Houdini17.5_GameDevToolset</tool>
+        <file>null</file>
+        <location>null</location>
+        <command>forfiles /P "%APPDATA%\SideFX\GameDevToolset\17.5"</command>
+        <regex>"([\d\.]+)"</regex>
+    </parameter>
+    <parameter>
+        <tool>Houdini18_Labs</tool>
+        <file>null</file>
+        <location>null</location>
+        <command>forfiles /P "%USERPROFILE%\Documents\houdini18.0\SideFXLabs"</command>
+        <regex>"(.*)"</regex>
+    </parameter>
+    <parameter>
+        <tool>Houdini19_Labs</tool>
+        <file>null</file>
+        <location>null</location>
+        <command>forfiles /P "C:\Program Files\Side Effects Software\sidefx_packages"</command>
+        <regex>"SideFXLabs([\d\.]+)"</regex>
+    </parameter>
+    
+    <parameter>
         <tool>Maven</tool>
         <file>mvn.cmd</file>
         <location>C:\Program Files\Maven</location>
