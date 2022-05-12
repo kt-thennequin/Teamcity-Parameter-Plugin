@@ -5,7 +5,7 @@
 
             function loadParameters()
             {
-                var xmlDoc=loadXMLDoc("/plugins/parameterFinder/parameters.xml");
+                var xmlDoc=loadXMLDoc("../plugins/parameterFinder/parameters.xml");
                 var x = xmlDoc.getElementsByTagName("parameter");
 
                 for (i=0;i<x.length;i++) {
